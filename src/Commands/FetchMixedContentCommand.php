@@ -20,7 +20,7 @@ class FetchMixedContentCommand extends Command
 
         $mixedContent = $mixed_content_api::getMixedContent(
             Session::get('website'),
-            config('dashboard.tiles.mixedContent.key'),
+            config('dashboard.tiles.geekflare.key'),
         );
 
         MixedContentStore::make()->setData($mixedContent);
