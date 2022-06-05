@@ -5,6 +5,7 @@ namespace Quarterloop\MixedContentTile\Commands;
 use Illuminate\Console\Command;
 use Quarterloop\MixedContentTile\Services\MixedContentAPI;
 use Quarterloop\MixedContentTile\MixedContentStore;
+use Session;
 
 class FetchMixedContentCommand extends Command
 {
@@ -18,7 +19,7 @@ class FetchMixedContentCommand extends Command
         $this->info('Fetching mixed content data ...');
 
         $mixedContent = $mixed_content_api::getMixedContent(
-            config('dashboard.tiles.hosting.url'),
+            Session::get('website'),
             config('dashboard.tiles.mixedContent.key'),
         );
 
